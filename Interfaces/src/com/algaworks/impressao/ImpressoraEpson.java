@@ -1,16 +1,13 @@
-package com.algaworks.pagamento.operadoras;
-
-import com.algaworks.impressao.Impressora;
-import com.algaworks.impressao.Imprimivel;
+package com.algaworks.impressao;
 
 public class ImpressoraEpson implements Impressora {
 
 	@Override
-	public void imprimir(Imprimivel imprimeivel) {
+	public void imprimir(Imprimivel imprimivel) {
 		System.out.println("* * * * * * * * * * * * * * * * * * * * * * * *");
 		System.out.println(imprimivel.getCabecalhoPagina());
 		System.out.println("* * * * * * * * * * * * * * * * * * * * * * * *");
-		System.out.println();
+		System.out.println(imprimivel.getCorpoPagina());
 		System.out.println();
 		System.out.println("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _");
 		System.out.println("==                  EPSON                    ==");
