@@ -4,9 +4,9 @@ public class Fatura {
 	
 	
 	private String emailDevedor;
-	private long valor;
+	private double valor;
 	
-	public Fatura(String emailDevedor, long valor) {
+	public Fatura(String emailDevedor, double valor) {
 		this.emailDevedor = emailDevedor;
 		this.valor = valor;
 	}
@@ -17,10 +17,10 @@ public class Fatura {
 	public void setEmailDevedor(String emailDevedor) {
 		this.emailDevedor = emailDevedor;
 	}
-	public long getValor() {
+	public double getValor() {
 		return valor;
 	}
-	public void setValor(long valor) {
+	public void setValor(double valor) {
 		this.valor = valor;
 	}
 	
