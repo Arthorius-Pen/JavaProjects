@@ -5,7 +5,16 @@ public class Fatura {
 	
 	private String emailDevedor;
 	private double valor;
+	private boolean emailEnviado;
 	
+	public boolean isEmailEnviado() {
+		return emailEnviado;
+	}
+
+	public void setEmailEnviado(boolean emailEnviado) {
+		this.emailEnviado = emailEnviado;
+	}
+
 	public Fatura(String emailDevedor, double valor) {
 		this.emailDevedor = emailDevedor;
 		this.valor = valor;
@@ -25,6 +34,8 @@ public class Fatura {
 	}
 	
 	
-	
+	public String resumo() {
+		return "Valor devido: " + this.valor;
+	}
 	
 }
