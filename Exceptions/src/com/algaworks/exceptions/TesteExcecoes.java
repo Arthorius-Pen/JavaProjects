@@ -12,7 +12,14 @@ public class TesteExcecoes {
 		 */
 		
 		ContaCorrente cc = new ContaCorrente(1000);
-		cc.depositar(0);
+		try {		
+			cc.depositar(0);
+		} catch(IllegalArgumentException e) {
+			System.out.println("Não é possível depositar valores menores ou iguais a zero");
+			System.out.println("Erro: " + e.getMessage());
+		}
+		
+		System.out.println("Fim do programa");
 		
 	}
 }
