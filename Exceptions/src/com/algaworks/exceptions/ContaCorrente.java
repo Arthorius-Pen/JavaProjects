@@ -15,7 +15,10 @@ public class ContaCorrente {
 		this.saldo = saldo;
 	}
 
-	public void sacar(double qtn) {
+	public void sacar(double qtn) throws SaldoInsuficienteException {
+		if ( saldo - qtn < 0) {
+			throw new SaldoInsuficienteException("Valor de saque maior que seu saldo");
+		}
 		this.saldo -= qtn;
 	}
 	
