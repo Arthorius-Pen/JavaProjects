@@ -24,5 +24,4 @@ public class Carro {
 	public void setAno(int ano) {
 		this.ano = ano;
 	}
-
 }
