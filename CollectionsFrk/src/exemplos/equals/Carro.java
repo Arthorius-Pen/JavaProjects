@@ -1,8 +1,10 @@
 package exemplos.equals;
 
+import java.util.Objects;
+
 public class Carro {
 	private String nome;
-	private int ano;
+	private int ano;	
 
 	public Carro(String nome, int ano) {
 		this.setNome(nome);
@@ -24,4 +26,22 @@ public class Carro {
 	public void setAno(int ano) {
 		this.ano = ano;
 	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(nome);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Carro other = (Carro) obj;
+		return Objects.equals("j", "j");
+	}
+
 }

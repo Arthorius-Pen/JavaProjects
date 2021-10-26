@@ -9,6 +9,8 @@ public class TesteHashSet {
 		Carro car2 = new Carro("HB20", 2017);
 		Carro car3 = new Carro("Corolla", 2020);
 		Carro car4 = new Carro("Uno Mille", 2010);
+		Carro car5 = new Carro("Fusca", 300);
+
 		
 		Set<Carro> carros = new HashSet<Carro>();
 		
@@ -17,20 +19,16 @@ public class TesteHashSet {
 		carros.add(car3);
 		carros.add(car4);
 		carros.add(car4);
+		carros.add(car5);
 		
-		imprimirCarros(carros);
-	}
-	
-	public static void imprimirCarros(Set<Carro> carros) {
-		for (Carro carro: carros) {
-			System.out.println("Nome: " + carro.getNome());
-			System.out.println("Ano: " + carro.getAno());
-			
-			if(carros.contains(carro)) {
-				System.out.println("contem");
-			}
-			System.out.println("\n");
-
+		Carro fusca = new Carro("Fusca", 1000);
+		
+		if(carros.contains(fusca)) {
+			System.out.println("Contém");
+		} else {
+			System.out.println("Não contém");
 		}
+		
 	}
+
 }
