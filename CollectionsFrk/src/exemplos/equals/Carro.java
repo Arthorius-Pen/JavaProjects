@@ -41,7 +41,7 @@ public class Carro {
 		if (getClass() != obj.getClass())
 			return false;
 		Carro other = (Carro) obj;
-		return Objects.equals("j", "j");
+		return Objects.equals(nome, other.nome);
 	}
 
 }
