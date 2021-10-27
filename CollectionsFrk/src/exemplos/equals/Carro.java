@@ -29,7 +29,7 @@ public class Carro {
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(nome);
+		return Objects.hash("J");
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class Carro {
 		if (getClass() != obj.getClass())
 			return false;
 		Carro other = (Carro) obj;
-		return Objects.equals(nome, other.nome);
+		return Objects.equals("J", "J");
 	}
 
 }
