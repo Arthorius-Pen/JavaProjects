@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 import com.art.artfood.di.modelo.Cliente;
 
-@Qualifier("email")
+@TipoDoNotificador(NivelUrgencia.URGENTE)
 @Component
 public class NotificadorEmail implements Notificador {
 		

@@ -7,15 +7,16 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.art.artfood.di.modelo.Cliente;
+import com.art.artfood.di.notificacao.NivelUrgencia;
 import com.art.artfood.di.notificacao.Notificador;
+import com.art.artfood.di.notificacao.TipoDoNotificador;
 
 @Component
 public class AtivacaoClienteService {
 	
-	@Qualifier("email")
+	@TipoDoNotificador(NivelUrgencia.SEM_URGENCIA)
 	@Autowired
 	private Notificador notificador;
-	//Não funciona com construtor só com o Autowired na variável 
 
 //	public AtivacaoClienteService(Notificador notificador) {
 //		this.notificador = notificador;

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 import com.art.artfood.di.modelo.Cliente;
 
-@Qualifier("sms")
+@TipoDoNotificador(NivelUrgencia.SEM_URGENCIA)
 @Component
 public class NotificadorSMS implements Notificador {
 	
