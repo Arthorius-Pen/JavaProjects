@@ -2,6 +2,9 @@ package com.art.artfood.di.service;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -17,12 +20,16 @@ public class AtivacaoClienteService {
 	@TipoDoNotificador(NivelUrgencia.URGENTE)
 	@Autowired
 	private Notificador notificador;
-
-//	public AtivacaoClienteService(Notificador notificador) {
-//		this.notificador = notificador;
-//		
-//		System.out.println("Ativação cliente: " + notificador);
-//	}
+	
+	@PostConstruct
+	public void init() {
+		System.out.println("INIT");
+	}
+	
+	@PreDestroy
+	public void destroy() {
+		System.out.println("DESTROY");
+	}
 	
 	public void ativar(Cliente cliente) {
 		cliente.ativar();
@@ -30,10 +37,5 @@ public class AtivacaoClienteService {
 		this.notificador.notificar(cliente, "Seu cadastro está ativo!");
 
 	}
-	
-//	@Autowired
-//	public void setNotificador(Notificador notificador) {
-//		this.notificador = notificador;
-//	}
 	
 }
