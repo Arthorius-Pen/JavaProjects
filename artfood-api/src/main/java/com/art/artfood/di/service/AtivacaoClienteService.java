@@ -1,5 +1,7 @@
 package com.art.artfood.di.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +12,7 @@ import com.art.artfood.di.notificacao.Notificador;
 public class AtivacaoClienteService {
 	
 	@Autowired
-	private Notificador notificador;
+	private List<Notificador> notificadores;
 
 //	@Autowired
 //	public AtivacaoClienteService(Notificador notificador) {
@@ -22,7 +24,10 @@ public class AtivacaoClienteService {
 	public void ativar(Cliente cliente) {
 		cliente.ativar();
 		
-		this.notificador.notificar(cliente, "Seu cadastro está ativo!");
+		//this.notificador.notificar(cliente, "Seu cadastro está ativo!");
+		for (Notificador notificador: notificadores) {
+			notificador.notificar(cliente, "Seu cadastro está ativo!");
+		}
 	}
 	
 //	@Autowired
