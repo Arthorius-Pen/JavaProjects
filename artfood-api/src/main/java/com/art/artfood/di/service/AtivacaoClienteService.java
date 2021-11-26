@@ -3,6 +3,7 @@ package com.art.artfood.di.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.art.artfood.di.modelo.Cliente;
@@ -11,15 +12,16 @@ import com.art.artfood.di.notificacao.Notificador;
 @Component
 public class AtivacaoClienteService {
 	
-
-	private Notificador notificador;
-
+	@Qualifier("email")
 	@Autowired
-	public AtivacaoClienteService(Notificador notificador) {
-		this.notificador = notificador;
-		
-		System.out.println("Ativação cliente: " + notificador);
-	}
+	private Notificador notificador;
+	//Não funciona com construtor só com o Autowired na variável 
+
+//	public AtivacaoClienteService(Notificador notificador) {
+//		this.notificador = notificador;
+//		
+//		System.out.println("Ativação cliente: " + notificador);
+//	}
 	
 	public void ativar(Cliente cliente) {
 		cliente.ativar();
