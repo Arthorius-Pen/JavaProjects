@@ -7,19 +7,19 @@ import org.springframework.stereotype.Component;
 
 import com.art.artfood.di.modelo.Cliente;
 
-@Profile("producao")
+@Profile("dev")
 @TipoDoNotificador(NivelUrgencia.URGENTE)
 @Component
-public class NotificadorEmail implements Notificador {
+public class NotificadorEmailMock implements Notificador {
 		
-	public NotificadorEmail() {
-		System.out.println("Componente Spring: Notificador Email REAL");
+	public NotificadorEmailMock() {
+		System.out.println("Componente Spring: Notificador Email MOCK");
 	}
 	
 	@Override
 	public void notificar(Cliente cliente, String mensagem) {
 		
- 		System.out.printf("REAL: Notificando %s atravéz do email: %s\n->%s\n", 
+ 		System.out.printf("MOCK: Notificando %s atravéz do email: %s\n->%s\n", 
 				cliente.getNome(), cliente.getEmail(), mensagem);
 	}
 

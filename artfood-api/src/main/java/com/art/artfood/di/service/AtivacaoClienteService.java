@@ -14,7 +14,7 @@ import com.art.artfood.di.notificacao.TipoDoNotificador;
 @Component
 public class AtivacaoClienteService {
 	
-	@TipoDoNotificador(NivelUrgencia.SEM_URGENCIA)
+	@TipoDoNotificador(NivelUrgencia.URGENTE)
 	@Autowired
 	private Notificador notificador;
 
