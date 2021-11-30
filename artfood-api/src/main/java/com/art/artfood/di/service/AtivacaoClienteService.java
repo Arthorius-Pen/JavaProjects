@@ -1,12 +1,9 @@
 package com.art.artfood.di.service;
 
-import java.util.List;
-
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.art.artfood.di.modelo.Cliente;
@@ -14,19 +11,19 @@ import com.art.artfood.di.notificacao.NivelUrgencia;
 import com.art.artfood.di.notificacao.Notificador;
 import com.art.artfood.di.notificacao.TipoDoNotificador;
 
-@Component
+//@Component
 public class AtivacaoClienteService {
 	
 	@TipoDoNotificador(NivelUrgencia.URGENTE)
 	@Autowired
 	private Notificador notificador;
 	
-	@PostConstruct
+	//@PostConstruct
 	public void init() {
 		System.out.println("INIT");
 	}
 	
-	@PreDestroy
+	//@PreDestroy
 	public void destroy() {
 		System.out.println("DESTROY");
 	}
