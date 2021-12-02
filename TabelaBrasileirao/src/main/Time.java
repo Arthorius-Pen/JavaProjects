@@ -5,10 +5,19 @@ public class Time {
 	private int golsFeitos = 0;
 	private int golsSofridos = 0;
 	private int pontos = 0;
+	private int quantidadeDeJogos = 0;
+	private int golsContra = 0;
 	
 	public Time(String nome) {
-		// TODO Auto-generated constructor stub
 		this.nome = nome;
+	}
+
+	public int getGolsContra() {
+		return golsContra;
+	}
+
+	public void setGolsContra(int golsContra) {
+		this.golsContra = golsContra;
 	}
 
 	public String getNome() {
@@ -43,6 +52,13 @@ public class Time {
 		this.pontos = pontos;
 	}
 	
-	
+	public int getQuantidadeDeJogos() {
+		return quantidadeDeJogos;
+	}
+
+	public void setQuantidadeDeJogos(int quantidadeDeJogos) {
+		this.quantidadeDeJogos = quantidadeDeJogos;
+	}
+
 	
 }
