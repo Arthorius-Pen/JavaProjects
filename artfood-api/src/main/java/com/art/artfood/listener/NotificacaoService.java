@@ -12,13 +12,13 @@ import com.art.artfood.di.service.ClienteAtivadoEvent;
 @Component
 public class NotificacaoService {
 	
-	@TipoDoNotificador(NivelUrgencia.SEM_URGENCIA)
+	@TipoDoNotificador(NivelUrgencia.URGENTE)
 	@Autowired
 	private Notificador notificador;
 	
 	@EventListener
-	public void clienteAtivadoListenert(ClienteAtivadoEvent event) {
+	public void clienteAtivadoListener(ClienteAtivadoEvent event) {
 		notificador.notificar(event.getCliente(), "Seu cadastro está ativo");
 	}
-	
+
 }
