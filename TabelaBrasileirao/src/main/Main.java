@@ -3,28 +3,22 @@ package main;
 public class Main {
 
 	public static void main(String[] args) {
-		Time flamengo = new Time("Flamengo");
-		Time fluminese = new Time("Fluminese");
-		
 		Tabela tabela = new Tabela();
 		
+		Time flamengo = new Time("Flamengo");
+		Time fluminese = new Time("fluminese");
+		Time vasco = new Time("vasco");
 		
-		tabela.addTime(fluminese);
 		tabela.addTime(flamengo);
+		tabela.addTime(fluminese);
+		tabela.addTime(vasco);
+
 		
-		for (Time time: tabela.getTabela()) {
-			System.out.println(time.getGolsFeitos());
-		}
+		tabela.jogar();
+		System.out.println("FINALIZADO");
 		
-		flamengo.setGolsFeitos(10);
-		fluminese.setGolsFeitos(-8);
-		
-		System.out.println("---------------------");
-		
-		for (Time time: tabela.getTabela()) {
-			System.out.println(time.getGolsFeitos());
-		}
-		
+		tabela.getPrettyTabela();
+
 	}
 
 }

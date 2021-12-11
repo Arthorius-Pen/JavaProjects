@@ -1,12 +1,23 @@
 package main;
 
-public class Time {
+public class Time implements Comparable<Time>{
 	private String nome;
 	private int golsFeitos = 0;
 	private int golsSofridos = 0;
 	private int pontos = 0;
 	private int quantidadeDeJogos = 0;
 	private int golsContra = 0;
+	
+	@Override
+	public int compareTo(Time outroTime) {
+		if (this.pontos > outroTime.getPontos()) {
+			return -1;
+		}
+		if (this.pontos < outroTime.getPontos()) {
+			return 1;
+		}
+		return 0;
+	}
 	
 	public Time(String nome) {
 		this.nome = nome;
@@ -59,6 +70,8 @@ public class Time {
 	public void setQuantidadeDeJogos(int quantidadeDeJogos) {
 		this.quantidadeDeJogos = quantidadeDeJogos;
 	}
+
+	
 
 	
 }
