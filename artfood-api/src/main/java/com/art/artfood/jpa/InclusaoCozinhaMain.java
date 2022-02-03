@@ -1,7 +1,5 @@
 package com.art.artfood.jpa;
 
-import java.util.List;
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -16,12 +14,14 @@ public class InclusaoCozinhaMain {
 				.run(args);
 		
 		CadastroCozinha cadastroCozinha =  applicationContext.getBean(CadastroCozinha.class);
+
+		Cozinha cozinha1 = new Cozinha();
+		cozinha1.setNome("Italiana");
 		
-		List<Cozinha> cozinhas = cadastroCozinha.listar();
+		Cozinha cozinha2 = new Cozinha();
+		cozinha2.setNome("Japonesa");
 		
-		for(Cozinha cozinha : cozinhas) {
-			System.out.println(cozinha.getNome());
-		}
-		
+		cadastroCozinha.adicionar(cozinha2);
+		cadastroCozinha.adicionar(cozinha1);
 	}
 }
