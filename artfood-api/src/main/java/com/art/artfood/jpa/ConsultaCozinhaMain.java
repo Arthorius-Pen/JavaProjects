@@ -2,8 +2,7 @@ package com.art.artfood.jpa;
 
 import java.util.List;
 
-import org.apache.catalina.core.ApplicationContext;
-import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.ApplicationContext;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
