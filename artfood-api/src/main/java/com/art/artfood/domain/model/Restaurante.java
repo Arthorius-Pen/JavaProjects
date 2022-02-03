@@ -1,5 +1,6 @@
 package com.art.artfood.domain.model;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -17,6 +18,9 @@ public class Restaurante {
 	
 	@Column
 	private String nome;
+	
+	@Column(name = "taxa_frete")
+	private BigDecimal taxaFrete;
 
 	public Long getId() {
 		return id;
@@ -28,6 +32,14 @@ public class Restaurante {
 
 	public String getNome() {
 		return nome;
+	}
+
+	public BigDecimal getTaxaFrete() {
+		return taxaFrete;
+	}
+
+	public void setTaxaFrete(BigDecimal taxaFrete) {
+		this.taxaFrete = taxaFrete;
 	}
 
 	public void setNome(String nome) {

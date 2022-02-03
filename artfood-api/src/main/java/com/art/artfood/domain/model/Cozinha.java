@@ -1,6 +1,5 @@
 package com.art.artfood.domain.model;
 
-import java.math.BigDecimal;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -18,9 +17,6 @@ public class Cozinha {
 	
 	@Column
 	private String nome;
-	
-	@Column(name = "taxa_frete")
-	private BigDecimal taxaFrete;
 
 	public Long getId() {
 		return id;
