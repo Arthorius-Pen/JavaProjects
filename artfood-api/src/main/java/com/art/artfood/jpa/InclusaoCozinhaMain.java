@@ -6,6 +6,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 
 import com.art.artfood.ArtfoodApiApplication;
 import com.art.artfood.domain.model.Cozinha;
+import com.art.artfood.domain.repository.CozinhaRepository;
 
 public class InclusaoCozinhaMain {
 	public static void main(String[] args) {
@@ -13,7 +14,7 @@ public class InclusaoCozinhaMain {
 				.web(WebApplicationType.NONE)
 				.run(args);
 		
-		CadastroCozinha cadastroCozinha =  applicationContext.getBean(CadastroCozinha.class);
+		CozinhaRepository cozinhaRepository =  applicationContext.getBean(CozinhaRepository.class);
 
 		Cozinha cozinha1 = new Cozinha();
 		cozinha1.setNome("Italiana");
@@ -21,7 +22,7 @@ public class InclusaoCozinhaMain {
 		Cozinha cozinha2 = new Cozinha();
 		cozinha2.setNome("Japonesa");
 		
-		cadastroCozinha.adicionar(cozinha2);
-		cadastroCozinha.adicionar(cozinha1);
+		cozinhaRepository.salvar(cozinha2);
+		cozinhaRepository.salvar(cozinha1);
 	}
 }

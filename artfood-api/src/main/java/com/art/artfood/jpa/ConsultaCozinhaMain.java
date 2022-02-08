@@ -9,6 +9,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 
 import com.art.artfood.ArtfoodApiApplication;
 import com.art.artfood.domain.model.Cozinha;
+import com.art.artfood.domain.repository.CozinhaRepository;
 
 public class ConsultaCozinhaMain {
 	public static void main(String[] args) {
@@ -16,10 +17,10 @@ public class ConsultaCozinhaMain {
 				.web(WebApplicationType.NONE)
 				.run(args);
 		
-		CadastroCozinha cadastroCozinha =  applicationContext.getBean(CadastroCozinha.class);
+		CozinhaRepository cozinhaRepository =  applicationContext.getBean(CozinhaRepository.class);
 		
 		
-		List<Cozinha> cozinhas = cadastroCozinha.listar();
+		List<Cozinha> cozinhas = cozinhaRepository.adicionar();
 		
 		for(Cozinha cozinha : cozinhas) {
 			System.out.println(cozinha.getNome());

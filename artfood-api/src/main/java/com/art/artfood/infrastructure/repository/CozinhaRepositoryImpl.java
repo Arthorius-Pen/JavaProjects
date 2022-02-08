@@ -1,4 +1,4 @@
-package com.art.artfood.jpa;
+package com.art.artfood.infrastructure.repository;
 
 import java.util.List;
 
@@ -9,29 +9,36 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.art.artfood.domain.model.Cozinha;
+import com.art.artfood.domain.repository.CozinhaRepository;
 
 @Component
-public class CadastroCozinha {
-	
+public class CozinhaRepositoryImpl implements CozinhaRepository {
+
 	@PersistenceContext
 	private EntityManager manager;
 	
-	public List<Cozinha> listar() {
+	@Override
+	public List<Cozinha> adicionar() {
 		return manager.createQuery("from Cozinha", Cozinha.class).getResultList();
 	}
-	
+
+	@Override
 	public Cozinha buscar(Long id) {
 		return manager.find(Cozinha.class, id);
 	}
 	
 	@Transactional
-	public Cozinha adicionar(Cozinha cozinha) {
+	@Override
+	public Cozinha salvar(Cozinha cozinha) {
 		return manager.merge(cozinha);
 	}
-	
+
 	@Transactional
-	public void deletar(Cozinha cozinha) {
+	@Override
+	public void remover(Cozinha cozinha) {
 		cozinha = this.buscar(cozinha.getId());
-		manager.remove(cozinha);
+		manager.remove(cozinha);		
 	}
+
+	
 }

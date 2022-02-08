@@ -6,6 +6,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 
 import com.art.artfood.ArtfoodApiApplication;
 import com.art.artfood.domain.model.Cozinha;
+import com.art.artfood.domain.repository.CozinhaRepository;
 
 public class DeletarCozinhaMain {
 	public static void main(String[] args) {
@@ -13,11 +14,11 @@ public class DeletarCozinhaMain {
 				.web(WebApplicationType.NONE)
 				.run(args);
 		
-		CadastroCozinha cadastroCozinha =  applicationContext.getBean(CadastroCozinha.class);
+		CozinhaRepository cozinhaRepository =  applicationContext.getBean(CozinhaRepository.class);
 
 		Cozinha cozinha = new Cozinha();
 		cozinha.setId(1L);
 
-		cadastroCozinha.deletar(cozinha);
+		cozinhaRepository.remover(cozinha);
 	}
 }

@@ -7,6 +7,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 
 import com.art.artfood.ArtfoodApiApplication;
 import com.art.artfood.domain.model.Cozinha;
+import com.art.artfood.domain.repository.CozinhaRepository;
 
 public class BuscarCozinhaMain {
 	public static void main(String[] args) {
@@ -14,10 +15,10 @@ public class BuscarCozinhaMain {
 				.web(WebApplicationType.NONE)
 				.run(args);
 		
-		CadastroCozinha cadastroCozinha =  applicationContext.getBean(CadastroCozinha.class);
+		CozinhaRepository cozinhaRepository =  applicationContext.getBean(CozinhaRepository.class);
 		
 		
-		Cozinha cozinha = cadastroCozinha.buscar(1L);
+		Cozinha cozinha = cozinhaRepository.buscar(1L);
 		
 			System.out.println(cozinha.getNome());
 	}
