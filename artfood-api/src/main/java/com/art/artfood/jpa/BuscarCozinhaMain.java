@@ -20,6 +20,6 @@ public class BuscarCozinhaMain {
 		
 		Cozinha cozinha = cozinhaRepository.buscar(1L);
 		
-			System.out.println(cozinha.getNome());
+		System.out.println(cozinha.getNome());
 	}
 }
