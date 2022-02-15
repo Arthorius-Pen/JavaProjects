@@ -11,7 +11,7 @@ import com.art.artfood.ArtfoodApiApplication;
 import com.art.artfood.domain.model.Restaurante;
 import com.art.artfood.domain.repository.RestauranteRepository;
 
-public class AtualizacaoRestauranteMain {
+public class RestauranteMain {
 	public static void main(String[] args) {
 		ApplicationContext applicationContext = new SpringApplicationBuilder(ArtfoodApiApplication.class)
 				.web(WebApplicationType.NONE)
