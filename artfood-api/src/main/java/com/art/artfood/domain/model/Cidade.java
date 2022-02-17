@@ -21,10 +21,10 @@ public class Cidade {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column
+	@Column(nullable = false)
 	private String nome;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_estado", nullable = false)
+	@JoinColumn(nullable = false)
 	private Estado estado;
 }
