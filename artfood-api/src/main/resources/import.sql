@@ -1,4 +1,12 @@
-insert into cozinha (id, nome) values (1, 'brazileira');
-insert into cozinha (id, nome) values (2, 'chinesa');
+insert into cozinha (nome) values ('brazileira');
+insert into cozinha (nome) values ('chinesa');
 insert into restaurante (nome, taxa_frete, cozinha_id) values ('Coco coco', 2.7, 1);
 insert into restaurante (nome, taxa_frete, cozinha_id) values ('KFC', 9.4, 1);
+insert into estado (nome) values ('ES');
+insert into estado (nome) values ('RJ');
+insert into cidade (nome, estado_id) values ('Serra', 1);
+insert into cidade (nome, estado_id) values ('Rio de Janeiro', 2);
+insert into forma_pagamento (descricao) values ('Cartao');
+insert into forma_pagamento (descricao) values ('PIX');
+insert into permissao (nome, descricao) values ('adm', 'faz tudo');
+insert into permissao (nome, descricao) values ('funcionario', 'xora');

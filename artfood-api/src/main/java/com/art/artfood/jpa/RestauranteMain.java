@@ -18,12 +18,11 @@ public class RestauranteMain {
 				.run(args);
 		
 		RestauranteRepository restauranteRepository =  applicationContext.getBean(RestauranteRepository.class);
-
+		
 		// insert
 		Restaurante restaurante1 = new Restaurante();
 		restaurante1.setNome("lean");
-		long taxa = 10;
-		restaurante1.setTaxaFrete(taxa);
+		restaurante1.setTaxaFrete(10L);
 
 		restauranteRepository.salvar(restaurante1);
 
