@@ -5,12 +5,13 @@ public class Jogo {
 	private Time timeCasa;
 	private Time timeVisitante;
 	
-	public void setTimes(Time timeCasa, Time timeVisitante) {
+	public boolean setTimes(Time timeCasa, Time timeVisitante) {
 		if (timeCasa != timeVisitante) {
 			this.timeCasa = timeCasa;
 			this.timeVisitante = timeVisitante;
+			return true;
 		} else {
-			System.out.println("Jogo intválido: Os times são iguais!");
+			return false;
 		}
 	}
 	
@@ -34,21 +35,8 @@ public class Jogo {
 		}
 	}
 	
-	public void setGolsContra(int pontosTimeCasa, int golsTimeCasa, int pontosTimeVisitante, int golsTimeVisitante) {
-		if( (pontosTimeCasa - golsTimeCasa) < 0 ) {
-			int golsContra = golsTimeCasa - pontosTimeCasa;
-			
-			this.timeCasa.setGolsSofridos(this.timeCasa.getGolsSofridos() + golsContra);
-			
-			this.timeCasa.setGolsContra(golsContra);
-		}
-		
-		if( (pontosTimeVisitante - golsTimeVisitante) < 0 ) {
-			int golsContra = golsTimeVisitante - pontosTimeVisitante;
-			
-			this.timeVisitante.setGolsSofridos(this.timeVisitante.getGolsSofridos() + golsContra);
-			
-			this.timeVisitante.setGolsContra(golsContra);
-		}
+	public void setGolsContra(int golsContraTimeCasa, int golsContraTimeVisitante) {
+		this.timeCasa.setGolsContra(golsContraTimeCasa + this.timeCasa.getGolsContra());
+		this.timeVisitante.setGolsContra(golsContraTimeVisitante+ this.timeVisitante.getGolsContra());
 	}
 }

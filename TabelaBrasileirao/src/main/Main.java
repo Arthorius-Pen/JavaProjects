@@ -26,28 +26,36 @@ public class Main {
 				
 				if (casa != visitante) {
 					
-					jogo.setTimes(casa, visitante);
+					boolean diferentes = jogo.setTimes(casa, visitante);
+					
+					if(!diferentes) {
+						System.out.println("Jogo intválido: Os times são iguais!");
+					}
 					
 					System.out.println("\nCASA\tvs\tVISITANTE");	
 					System.out.println(casa.getNome() + "\tvs\t " + visitante.getNome());	
 					
-					System.out.println("Digite os PONTOS do time da "+ casa.getNome().toUpperCase() + ":");
-						
+					System.out.println("Digite os PONTOS do time "+ casa.getNome().toUpperCase() + ":");	
 					int pontosTimeCasa = inputStr.nextInt();
-					System.out.println("Digite os GOLS do time da " + casa.getNome().toUpperCase() + ":");
-						
+					
+					System.out.println("Digite os GOLS do time " + casa.getNome().toUpperCase() + ":");
 					int golsTimeCasa = inputStr.nextInt();
 					
-					System.out.println("Digite os PONTOS do time da "+ visitante.getNome().toUpperCase() + ":");
+					System.out.println("Digite os gols CONTRA do time " + casa.getNome().toUpperCase() + ":");
+					int golsContraTimeCasa = inputStr.nextInt();
 					
+					System.out.println("Digite os PONTOS do time "+ visitante.getNome().toUpperCase() + ":");
 					int pontosTimeVisitante = inputStr.nextInt();
-					System.out.println("Digite os GOLS do time da "+ visitante.getNome().toUpperCase() + ":");
-						
+					
+					System.out.println("Digite os GOLS do time "+ visitante.getNome().toUpperCase() + ":");	
 					int golsTimeVisitante = inputStr.nextInt();
+					
+					System.out.println("Digite os gols CONTRA do time " + visitante.getNome().toUpperCase() + ":");
+					int golsContraTimeVisitante = inputStr.nextInt();
 					
 					jogo.addGols(golsTimeCasa, golsTimeVisitante);
 					jogo.setPlacar(pontosTimeCasa, pontosTimeVisitante);
-					jogo.setGolsContra(pontosTimeCasa, golsTimeCasa, pontosTimeVisitante, golsTimeVisitante);
+					jogo.setGolsContra(golsContraTimeCasa, golsContraTimeVisitante);
 				}
 			});
 		});
