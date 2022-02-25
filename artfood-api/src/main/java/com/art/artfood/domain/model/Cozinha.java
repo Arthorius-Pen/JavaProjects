@@ -8,9 +8,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import lombok.Getter;
 import lombok.Setter;
 
+@JsonRootName("cozinha")
 @Getter
 @Setter
 @Entity
@@ -20,6 +25,9 @@ public class Cozinha {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	
+	@JsonProperty("titulo")
+//	@JsonIgnore()
 	@Column(nullable = false)
 	private String nome;
 
