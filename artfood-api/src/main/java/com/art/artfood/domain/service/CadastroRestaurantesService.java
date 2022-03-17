@@ -28,4 +28,5 @@ public class CadastroRestaurantesService {
 		return restauranteRepository.salvar(restaurante);
 		
 	}
+	
 }
