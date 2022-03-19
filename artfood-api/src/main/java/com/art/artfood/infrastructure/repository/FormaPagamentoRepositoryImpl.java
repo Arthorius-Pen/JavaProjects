@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,8 +24,8 @@ public class FormaPagamentoRepositoryImpl implements FormaPagamentoRepository {
 	}
 
 	@Override
-	public FormaPagamento buscar(Long id) {
-		return manager.find(FormaPagamento.class, id);
+	public FormaPagamento buscar(Long formaPagamentoId) {
+		return manager.find(FormaPagamento.class, formaPagamentoId);
 	}
 	
 	@Transactional
@@ -35,8 +36,13 @@ public class FormaPagamentoRepositoryImpl implements FormaPagamentoRepository {
 
 	@Transactional
 	@Override
-	public void remover(FormaPagamento formaPagamento) {
-		formaPagamento = this.buscar(formaPagamento.getId());
+	public void remover(Long formaPagamentoId) {
+		FormaPagamento formaPagamento = this.buscar(formaPagamentoId);
+		
+		if (formaPagamento == null) {
+			throw new EmptyResultDataAccessException(1);
+		}
+		
 		manager.remove(formaPagamento);		
 	}
 
