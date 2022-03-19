@@ -6,7 +6,7 @@ import com.art.artfood.domain.model.FormaPagamento;
 
 public interface FormaPagamentoRepository {
 	List<FormaPagamento> listar();
-	FormaPagamento buscar(Long id);
+	FormaPagamento buscar(Long formaPagamentoId);
 	FormaPagamento salvar(FormaPagamento formaPagamento);
-	void remover(FormaPagamento formaPagamento);
+	void remover(Long formaPagamentoId);
 }

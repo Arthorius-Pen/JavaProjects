@@ -6,7 +6,7 @@ import com.art.artfood.domain.model.Permissao;
 
 public interface PermissaoRepository {
 	List<Permissao> listar();
-	Permissao buscar(Long id);
+	Permissao buscar(Long permissaoId);
 	Permissao salvar(Permissao permissao);
-	void remover(Permissao permissao);
+	void remover(Long permissaoId);
 }
