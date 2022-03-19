@@ -1,6 +1,7 @@
 package com.art.artfood.domain.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.art.artfood.domain.exeption.EntidadeNaoEncontradaExeption;
@@ -26,6 +27,15 @@ public class CadastroRestaurantesService {
 		}
 		
 		return restauranteRepository.salvar(restaurante);
+		
+	}
+	
+	public void remover(Long restauranteId) {
+		try {
+			restauranteRepository.remover(restauranteId);
+		} catch (EmptyResultDataAccessException e) {
+			throw new EntidadeNaoEncontradaExeption(String.format("Restaurante de código %d, não foi encontrado", restauranteId));
+		}
 		
 	}
 	

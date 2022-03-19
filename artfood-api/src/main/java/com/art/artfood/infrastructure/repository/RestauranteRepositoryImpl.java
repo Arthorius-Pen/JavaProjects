@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Component;
 
 import com.art.artfood.domain.model.Restaurante;
@@ -23,8 +24,8 @@ public class RestauranteRepositoryImpl implements RestauranteRepository{
 	}
 	
 	@Override
-	public Restaurante buscar(Long id) {
-		return manager.find(Restaurante.class, id);
+	public Restaurante buscar(Long restauranteId) {
+		return manager.find(Restaurante.class, restauranteId);
 	}
 	
 	@Transactional
@@ -35,8 +36,13 @@ public class RestauranteRepositoryImpl implements RestauranteRepository{
 	
 	@Transactional
 	@Override
-	public void remover(Restaurante restaurante) {
-		restaurante = this.buscar(restaurante.getId());
+	public void remover(Long restauranteId) {
+		Restaurante restaurante = this.buscar(restauranteId);
+		
+		if (restaurante == null) {
+			throw new EmptyResultDataAccessException(1);
+		}
+		
 		manager.remove(restaurante);
 		
 	}
